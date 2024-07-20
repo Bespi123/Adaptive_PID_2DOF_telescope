@@ -1,0 +1,48 @@
+ 
+
+==============================================================================
+             H P    L A S E R    D A T A    P R O C E S S O R
+             hpldp.f     9.11.3  05/05/21        11:45   
+==============================================================================
+STATION        = AREL                          PAD ID         = 74031306
+FILENAME       = s64y24d166t1351#4379          DATA FORMAT    = LMT88
+LATITUDE       = -16.46572
+LONGITUDE      = 288.50704
+HEIGHT         = 2489.5050
+SIGMA MULT CAL = 3.0
+SIGMA MULT IRV = 3.0
+
+
+TARGET    AZIMUTH    ELEVATION       RANGE      ORIGIN
+   A       10.230       -1.810     105.949    DATABASE
+   B       48.167       -1.265     105.978    DATABASE
+   C      132.063        0.818     423.290    DATABASE
+   D      205.412       -3.029      51.438    DATABASE
+   E       46.928        5.073     870.000    DATABASE
+ 
+
+
+*****  PASS   1  *****                                                          
+                                                                                
+STATION    = AREL   / 74031306                       TEMP   PRESSURE  HUMID     
+SATELLITE  = JASON-3   / 1600201              MEAN  16.00     764.55  13.00     
+DATE       = Jun 14, 2024 = DOY 166           MIN   12.20     764.30  13.00     
+START TIME = 12:28:02                         MAX   18.60     764.70  13.00     
+END TIME   = 14:06:00                         RMS    2.67       0.11   0.00     
+                                                                                
+CALIBRATION OPTION = COMB                     Wavelength =     0.0000005320 M   
+TARGET APPLIED     = B                        TRANS OPT PATH =  0.0000 M        
+DELAY APPLIED      =      29.842 NS           ND OPT PATH    =  0.0015 M        
+                                              MISC OPT PATH  =  0.0023 M        
+CAL  TGT   OBS ACPTD   REJ ITR RMS (CM) DELAY (NS) SHIFT (NS) SHIFT (CM)        
+                                                                                
+PRE   B   2915  2915     0   1     0.02     29.842                              
+POST  B      0     0     0   0     0.00      0.000                              
+COMB  B   2915  2915     0   1     0.02     29.842     N/A        N/A           
+                                                                                
+SAT FIT   OBS ACPTD   REJ DEGR ITR RMS (CM)                                     
+                                                                                
+                                                                                
+                                                                                
+IRV RANGE BIAS =               M                                                
+IRV TIME BIAS  =               SEC                                              

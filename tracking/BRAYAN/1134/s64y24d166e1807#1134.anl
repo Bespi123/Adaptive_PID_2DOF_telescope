@@ -1,0 +1,39 @@
+
+                                                HONEYWELL GENERIC NORMAL POINT PROCESSOR 2.8.3 - 9/07/2021
+
+  Pass 003: 7501001 7403 / AREL   :   118 Obs @ 06/14/2024 18:07:52 UTC          
+ Prediction source is integrated CPF.
+
+ Coarse editing based on    10.0 (m) limit
+   118 Total;    111 Kept;      0 Flagged;      7 Removed
+
+ Bias Function Estimate
+  Biases:  Range   22.79     m;  Timing   1.242     ms;  Force model  0.1496E-04
+
+ Bias Function Editing:
+   118 Total;     94 Kept;     19 Flagged;      5 Removed
+
+ *23!
+  DC Editor:  Iteration 04,  Mean:    0.000,  RMS:   0.006,  Obs:  96
+
+ Bias Function Estimate
+  Biases:  Range  0.2511     m;  Timing  0.2181E-01 ms;  Force model  0.1549E-06
+
+ Piecewise edit w/ polynomial of degree  2
+   118 Total;    108 Kept;      0 Flagged;     10 Removed
+
+ Polynomial of degree 3 evaluated as best:
+   118 Total;    110 Kept;      0 Flagged;      8 Removed
+
+ Bin Size =  30.0 sec   MERIT RMS =  0.0000   Cal shift = 0.0016
+
+    Total Edits     Epoch         Normal        O-C   Fit Res     Bin     Bin     Bin   Bin     Wt      Wt      Wt    Wt   Receive
+  #             (Sec of Day)    Point (m)       (m)     (m)      Mean     RMS    Skew  Kurt    Mean     RMS    Skew  Kurt   Energy
+ 01     3     2 65278.423427   2124234.2538  -0.0354  -0.0050  -0.0050  0.0073  +0.00  0.00  -0.0034  0.0062  +0.00  0.00    540.0|
+ 02     3     2 65296.023351   2032309.6164  -0.0168  +0.0060  +0.0060  0.0073  +0.00  0.00  +0.0038  0.0062  +0.00  0.00    590.0|
+ 03     8     0 65338.023647   1821135.7354  -0.0109  -0.0058  +0.0001  0.0074  -0.09  1.71  +0.0001  0.0067  -0.05  1.93    542.5|
+ 04    44     1 65358.023823   1725650.9043  -0.0077  -0.0080  +0.0000  0.0060  +0.52  2.90  -0.0002  0.0051  +0.58  3.57    537.9|
+ 05    51     1 65383.823784   1608655.9907  +0.0043  +0.0025  +0.0000  0.0083  -0.16  2.80  +0.0001  0.0069  -0.17  3.56    548.8|
+ 06     9     2 65404.023612   1522910.8323  -0.0124  -0.0094  +0.0011  0.0073  +0.24  1.82  +0.0005  0.0064  +0.44  2.39    542.9|
+
+  6   118     8     Pass statistics for degree 3 polynomial:   +0.0001  0.0073  +0.01  2.91  +0.0000  0.0062  +0.08  3.52
