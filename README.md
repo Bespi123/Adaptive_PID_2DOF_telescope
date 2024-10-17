@@ -1,5 +1,5 @@
 
-# URUCON Simulation and Control of a Mount for a Telescope
+# Simulation and Control of a Mount for a Telescope
 
 ## Overview
 
