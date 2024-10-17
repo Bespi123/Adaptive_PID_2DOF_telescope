@@ -1,3 +1,15 @@
+%**************************************************************************
+% AUTHOR: Brayan Espinoza 17/10/2024
+% DESCRIPTION: 
+% This program performs the simulation of an adaptive PID control algorithm 
+% for a 2DOF telescope modeled as a 2DOF robotic arm using Lagrange
+% equations.
+% IMPORTANT: 
+% The telescope is modeled without taking into consideration the actuators
+% and sensor errors, so the required torque is used as input.
+%
+% *************************************************************************
+
 parameters
 
 signalAz = [(satData(2).sod-satData(2).sod(1)), satData(2).az]; % Crear la estructura de la señal
