@@ -75,3 +75,27 @@ itse2 = trapz(t,e2.^2);
 T = table(ts1, ts2, uwork1, uwork2, itse1, itse2);
 %%%%Muestra la tabla
 disp(T);
+
+function ts = calculateSettlementTime(e, t, tol)
+    % This function calculates the settlement time (ts) of a signal 'e' based on
+    % a tolerance 'tol'. The settlement time is the last time the signal 'e' 
+    % goes outside the tolerance bounds.
+
+    % Set bounds for the acceptable range [-tol, tol]
+    bounds = [-tol tol];
+    
+    % Create a logical array indicating whether the values of 'e' are outside the bounds.
+    % If a value of 'e' is out of bounds, the corresponding value in 'outOfBounds' will be true (1).
+    % The condition checks if 'e' is less than -tol or greater than tol.
+    outOfBounds = ~(e >= bounds(1) & e <= bounds(2));
+    
+    % If all values of 'e' are within bounds (no true values in 'outOfBounds'),
+    % it means the signal settles within the tolerance throughout, so return NaN.
+    if ~any(outOfBounds)
+        ts = NaN;  % No settlement time found, as the signal remains within bounds.
+    else
+        % Find the last time the signal was out of bounds.
+        % The function 'find' returns the index of the last out-of-bounds value.
+        ts = t(find(outOfBounds, 1, 'last'));
+    end
+end
