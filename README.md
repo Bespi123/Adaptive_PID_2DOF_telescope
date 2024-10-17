@@ -10,34 +10,22 @@ The main goals of the project are:
 - To control the telescope using an adaptive PID controller optimized by a genetic algorithm.
 - To track LEO satellites by adjusting the telescope's azimuth and elevation.
 
-## Files
-
-### Code
-- `readFrd.m`: This MATLAB function reads .frd files containing azimuth and elevation data. The function extracts information such as seconds of day (`sod`), azimuth (`az`), and elevation (`el`), and stores them in a structured format.
-- `calculateRisingTime.m`: Calculates the rising time of the signal based on the data extracted from the .frd file.
-- `calculateSettlementTime.m`: Calculates the settling time of the signal from the .frd file, using a specified tolerance level.
-- `calculateOvershoot.m`: Determines the maximum overshoot of the telescope's response.
-
-### Input Data
-- `.frd` files: These contain observational data for telescope movements. The files provide azimuth and elevation angles over time, which are used to simulate and control the telescope's pointing accuracy.
-
-### Simulation
-- The main script reads the `.frd` files using `readFrd.m` and then plots the azimuth and elevation data using MATLAB's plotting functions.
-
+## Main Files
+- The main script to test regulation maneuvers is the `regulationEvaluation`.
+- The main script to test regulation maneuvers is the `trackingEvaluation`.
+- The optimization algorithm for tunning the control algorithm based on genetic algorithms is coded in  `optimizationProgram`.
+  
 ## How to Use
 
 1. **Download the Project**: Clone or download this repository into your MATLAB working directory.
-2. **Set Up Data**: Ensure that the `.frd` files are located in the directory structure specified in the code (`BRAYAN/*/*e?????????.frd`). Modify the path in the script if necessary.
+2. **Set Up Data**: Ensure all the files and subfiles are included in the MATLAB path.
 3. **Run the Simulation**: Execute the main MATLAB script to:
-    - Read the `.frd` files.
-    - Simulate the telescope's azimuth and elevation response.
-    - Plot the results to observe the system's performance.
+    - The main script to test regulation maneuvers is the `regulationEvaluation`.
+    - The main script to test regulation maneuvers is the `trackingEvaluation`.
 4. **Modify and Customize**: You can modify the genetic algorithm parameters or PID controller gains to optimize the control system based on different simulation needs.
 
-### Example of Plot Output
-The code generates plots that show:
-- Azimuth and elevation angles over time for each satellite or observation session.
-- A figure for each `.frd` file is generated, plotting the azimuth and elevation data.
+### More information
+For additional information refer to `report.pdf`.
 
 ## Requirements
 - MATLAB (R2018 or newer recommended)
