@@ -1,9 +1,9 @@
 
 # URUCON Simulation and Control of a Mount for a Telescope
 
-## Overviewg
+## Overview
 
-This project focuses on the simulation and control of a 2-DOF (degrees of freedom) telescope mount for astronomical observations and Low Earth Orbit (LEO) satellite tracking. The project utilizes a dynamic model of the telescope, applying adaptive PID control optimized by genetic algorithms to achieve precise positioning for tracking purposes. The code simulates telescope azimuth and elevation movements, plotting data extracted from .frd files to visualize the control system's performance.
+This project focuses on simulating and controlling a 2-DOF (degrees of freedom) telescope mount for astronomical observations and Low Earth Orbit (LEO) satellite tracking. The project utilizes a dynamic model of the telescope, applying adaptive PID control optimized by genetic algorithms to achieve precise positioning for tracking purposes. The code simulates telescope azimuth and elevation movements, plotting data extracted from .frd files to visualize the control system's performance.
 
 The main goals of the project are:
 - To simulate the telescope's behavior based on kinematic and dynamic models.
