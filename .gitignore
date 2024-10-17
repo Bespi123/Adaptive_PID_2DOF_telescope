@@ -16,6 +16,7 @@
 
 # Simulink autosave files
 slprj/
+slprj/*
 sfunctbl/
 *_autosave.slx
 *.autosave
