@@ -10,10 +10,16 @@
 %
 % *************************************************************************
 
-parameters
+%%Read simulation parameters
+parameters;
 
-signalAz = [(satData(2).sod-satData(2).sod(1)), satData(2).az]; % Crear la estructura de la señal
-signalEl = [(satData(2).sod-satData(2).sod(1)), satData(2).el]; % Crear la estructura de la señal
+%%Read Az and El parameters calculated for satellites.
+readAzEl;
+close all;
+
+%%Organize signals to send to Simulink
+signalAz = [(satData(2).sod-satData(2).sod(1)), satData(2).az]; 
+signalEl = [(satData(2).sod-satData(2).sod(1)), satData(2).el]; 
 
 %%%Elimination of magnetic Field
 %%% PID Simulation
@@ -23,12 +29,12 @@ salidas=sim('adaptiveTracking.slx','SrcWorkspace','current');
  t          = yout{1}.Values.Time;
  y          = yout{1}.Values.Data;
  u          = yout{2}.Values.Data;
- e      = yout{3}.Values.Data;
- flag   = yout{4}.Values.Data;
- theta1 = yout{5}.Values.Data;
- theta2 = yout{6}.Values.Data;
+ e          = yout{3}.Values.Data;
+ flag       = yout{4}.Values.Data;
+ theta1     = yout{5}.Values.Data;
+ theta2     = yout{6}.Values.Data;
 
- % It is common to have the system error as out1, the controller output u as
+% It is common to have the system error as out1, the controller output u as
 % out2, and the output y as out3
 u1=u(:,1); y1=y(:,1); e1=e(:,1);%Define error, control signal and output
 u2=u(:,2); y2=y(:,2); e2=e(:,2);%Define error, control signal and output
@@ -48,9 +54,9 @@ sp2 = subplot(2,1,2);
     p2=plot(t,u(:,2),'LineWidth',2); grid on;
     xlabel('time (s)'); ylabel('Torque(Nm)')
     legend([p1,p2],'Azimuth','Elevation')
-    linkaxes([sp1,sp2],'x');
-%% 
+linkaxes([sp1,sp2],'x');
 
+%% 
  figure()
  sp1=subplot(2,1,1);
      p1=plot(t,theta1,'LineWidth',2); hold on;grid on;
@@ -74,15 +80,41 @@ sp2 = subplot(2,1,2);
      legend('e_{el}');
      linkaxes([sp1,sp2],'x');
 
+%% Calculate the measured parameters
+%%%%Calculate settlement time
+ts1 = calculateSettlementTime(e1, t, 5/100);
+ts2 = calculateSettlementTime(e2, t, 5/100);
+%%%%Calculate the u^2_int
+uwork1 = trapz(t,u1.^2);
+uwork2 = trapz(t,u2.^2);
+%%%%Calculate the e^2_int
+itse1 = trapz(t,e1.^2);
+itse2 = trapz(t,e2.^2);
+%%%%Crea la tabla
+T = table(ts1, ts2, uwork1, uwork2, itse1, itse2);
+%%%%Muestra la tabla
+disp(T);
 
+ function ts = calculateSettlementTime(e, t, tol)
+    % This function calculates the settlement time (ts) of a signal 'e' based on
+    % a tolerance 'tol'. The settlement time is the last time the signal 'e' 
+    % goes outside the tolerance bounds.
 
-     %% 
-
-     ts1 = calculateSettlementTime(e1, t, 5/100)
-     ts2 = calculateSettlementTime(e2, t, 5/100)
-
-     uwork1 = trapz(t,u1.^2)
-     uwork2 = trapz(t,u2.^2)
-
-     itse1 = trapz(t,e1.^2)
-     itse2 = trapz(t,e2.^2)
+    % Set bounds for the acceptable range [-tol, tol]
+    bounds = [-tol tol];
+    
+    % Create a logical array indicating whether the values of 'e' are outside the bounds.
+    % If a value of 'e' is out of bounds, the corresponding value in 'outOfBounds' will be true (1).
+    % The condition checks if 'e' is less than -tol or greater than tol.
+    outOfBounds = ~(e >= bounds(1) & e <= bounds(2));
+    
+    % If all values of 'e' are within bounds (no true values in 'outOfBounds'),
+    % it means the signal settles within the tolerance throughout, so return NaN.
+    if ~any(outOfBounds)
+        ts = NaN;  % No settlement time found, as the signal remains within bounds.
+    else
+        % Find the last time the signal was out of bounds.
+        % The function 'find' returns the index of the last out-of-bounds value.
+        ts = t(find(outOfBounds, 1, 'last'));
+    end
+end
