@@ -28,5 +28,4 @@ function theta_dot = adaptationLaw(entr)
     % Calculation of theta_dot using the adaptation law
     % The equation is: theta_dot = n * myPi * (s_dot + alpha * s + beta * tanh(s / e))
     theta_dot = n * myPi * (s_dot + alpha * s + beta * tanh(s / e));
-
 end
